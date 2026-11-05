@@ -24,11 +24,13 @@ job-hunting/
 │   ├── evidence-rules.md             事实底线:已实现 / 已验证 / 本人完成、撤回机制
 │   ├── resume-rewrite.md             定向改简历五步与禁令
 │   ├── resume-output.md              交付:Markdown 主版本 → docx,版式与自查
+│   ├── docx-layout-and-photo.md      证件照、页数自适应、「抄样子不抄内容」的模板用法
 │   └── platforms-and-endpoints.md    平台接口、城市码、限流节奏
 ├── scripts/
 │   ├── boss-search.js                在页面上下文里跑的结构化采岗脚本
 │   ├── docx2md.py                    docx → 文本(文本框兜底)
-│   └── md2docx.py                    Markdown → docx(简历版式)
+│   ├── md2docx.py                    Markdown → docx(简历版式)
+│   └── build_resume_docx.py          Markdown → docx(带证件照 / 自动压页数 / 导 PDF)
 ├── templates/
 │   ├── job-eval-template.md          单条岗位评分格式
 │   └── daily-list-template.md        每日清单格式
@@ -77,8 +79,8 @@ git clone <本仓库地址> <项目根>/.dsh/skills/job-hunting
 
 ## 已知瓶颈
 
-- **导出的简历版式还不好看**:字体、段距、边距是写死的常量,内容一长一短就容易挤或空,两栏和中英文混排没专门处理。近期会做成可切换模板。
-- **只能导 docx,导不了 PDF**:得靠 LibreOffice / Word 另存。
+- **版式只有一种**(单栏 + 蓝色分节线):两栏、学术型还没做;字号能按页数自适应了,但「内容该删哪句」仍然靠人。
+- **PDF 依赖本机 Word / WPS**:没有的话导出会跳过;非 Windows 请自行用 LibreOffice 转。
 - **采岗强依赖平台搜索接口**:接口、字段、城市码随时会变,限流阈值也在变。
 - **评分质量取决于证据库质量**:证据写成「参与了项目」,分就只能给得含糊。
 

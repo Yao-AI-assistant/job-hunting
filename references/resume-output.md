@@ -48,4 +48,10 @@ py tools/docx2md.py <成品.docx>     /tmp/_check.md       # 回读校验
 
 ## PDF
 
-需要 PDF 时用 Word(或 LibreOffice)另存;不要用网页打印,页边距和字体会跑。这一步留给本人或本地已有工具,不要为它临时装一堆依赖。
+需要 PDF 时用 `scripts/build_resume_docx.py --pdf`(Windows 上走 Word / WPS 的 COM 导出,零附加依赖)。
+**不要用网页打印**,页边距和字体会跑。
+
+## 版式升级
+
+要加证件照、要按页数自动挑字号、或拿到一份「模板」想知道怎么只借它的样子——见
+`references/docx-layout-and-photo.md`,工具是 `scripts/build_resume_docx.py`。
